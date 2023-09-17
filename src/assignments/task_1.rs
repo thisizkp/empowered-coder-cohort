@@ -1,17 +1,17 @@
-#[allow(dead_code)]
+#[derive(Debug)]
 pub struct Person {
-    name: String,
-    age: u8,
+    pub name: String,
+    pub age: u8,
 }
 
-#[allow(dead_code)]
-pub struct Book {
-    title: String,
-    author: String,
-    is_available: bool,
+#[derive(Debug)]
+pub struct Book<'a> {
+    pub title: String,
+    pub author: String,
+    pub is_available: bool,
+    pub borrowed_by: Option<&'a Person>,
 }
 
-#[allow(dead_code)]
-pub struct Library {
-    books: Vec<Book>,
+pub struct Library<'a> {
+    pub books: Vec<Book<'a>>,
 }
